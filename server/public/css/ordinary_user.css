@@ -1,0 +1,89 @@
+html,body {
+  height: 100%;
+  width: 100%;
+}
+
+a,li,ul,html,body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#ordinary {
+  height: 100%;
+}
+
+.control_nav {
+  width: 20%;
+  height: 100%;
+  float: left;
+  background-color: rgba(0,0,0,0.8);;
+}
+
+.present {
+  width: 80%;
+  height: 100%;
+  padding-right: 50px;
+  float: right;
+  background-color: whitesmoke;
+}
+
+.login_nav {
+  height: 40px;
+  padding: 5px ;
+  margin-left: 70%;
+  text-align: center;
+}
+
+.login_nav a{
+  margin-left: 20px;
+  background-color: inherit;
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
+  /*  border: none;
+    border-radius: 10%;
+    outline: medium;*/
+}
+
+.login_nav a:hover{
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
+}
+.control_panel {
+  margin: 30% 0%;
+  text-align: center;
+}
+
+
+.control_panel .control_normal {
+  text-decoration: none;
+  height: 50px;
+  padding: 3px 5px;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  color: silver;
+}
+
+.control_panel .control_active {
+  text-decoration: none;
+  height: 50px;
+  padding: 3px 5px;
+  line-height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: grey;
+}
+
+.present_result{
+   margin: 50px 15%;
+}
+/*
+.control_panel a:hover{
+  text-decoration: none;
+  color:whitesmoke;
+  background-color: grey;
+}
+*/

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/ordinary_user.css">
+  <link rel="stylesheet" href="jQuerycxCalendar/css/cxcalendar.css">
+ <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+  <script src="jQuerycxCalendar/js/jquery.cxcalendar.min.js"></script>-->
+</head>
+<body>
+<div id="ordinary">
+  <div class="control_nav">
+    <div class="control_panel">
+      <div class="row">
+        <div @click="setFlag('WATER')">
+          <div v-if ="flag != 'WATER'" class="row control_normal">Inquiry Water</div>
+          <div v-if ="flag == 'WATER'" class="row control_active">Inquiry Water</div>
+        </div>
+        <div @click="setFlag('POWER')">
+          <div v-if ="flag != 'POWER'" class="row control_normal">Inquiry Power</div>
+          <div v-if ="flag == 'POWER'" class="row control_active">Inquiry Power</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="present">
+   <!-- <div>{{message}}</div>-->
+    <div class="login_nav">
+      <span>Welcome,username</span>
+      <a href="login_out">Login Out </A>
+    </div>
+    <div v-if="flag != null" style="margin-top: 50px">
+      <form>
+        <div class="row" style="text-align: center">
+          <label for="searchDate">查询的时间：</label>
+          <input id="searchDate" type="datetime" data-format="YYYY-MM-DD HH:mm:ss">
+          <input  id="startTime" type="datetime" data-format="YYYY-MM-DD HH:mm:ss">
+          <input  type="date">
+          <button v-if = "flag == 'WATER'" type="button" @click="inquiry('water')" class="btn btn-primary">
+            <i class="fa fa-search" aria-hidden="true"></i>查询水量</button>
+          <button v-if="flag == 'POWER'" type="button" @click="inquiry('power')"  class="btn btn-primary">
+            <i class="fa fa-search" aria-hidden="true"></i>查询电量</button>
+        </div>
+      </form>
+    </div>
+    <div class="present_result">
+      <div v-if = "flag == 'WATER' ">
+        <div v-for="item in informArray">
+          <water-component :node="item.node" :water="item.water" :key="item.node"></water-component>
+        </div>
+      </div>
+      <div v-if = "flag == 'POWER' ">
+        <div v-for="item in informArray">
+          <power-component :node="item.node" :power="item.power" :key="item.node"></power-component>
+        </div>
+      </div>
+    <!--  <div v-for="item in informArray">
+        <power-component :node="item.node" :power="item.power" :key="item.node"></power-component>
+      </div>-->
+    </div>
+    <div>
+
+    </div>
+  </div>
+</div>
+
+<template id="water">
+  <div class="row">
+    <div class="col-xs-3 col-md-3">
+      水表号：
+    </div>
+    <div class="col-xs-3 col-md-3">
+       {{node}}
+    </div>
+    <div class="col-xs-3 col-md-3">
+      水量/吨
+    </div>
+    <div class="col-xs-6 col-md-3">
+      {{water}}
+    </div>
+  </div>
+</template>
+
+
+<template id="power">
+  <div class="row">
+    <div class="col-xs-3 col-md-3">
+      水表号：
+    </div>
+    <div class="col-xs-3 col-md-3">
+      {{node}}
+    </div>
+    <div class="col-xs-3 col-md-3">
+      电量/千瓦
+    </div>
+    <div class="col-xs-6 col-md-3">
+      {{power}}
+    </div>
+  </div>
+</template>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="jQuerycxCalendar/js/jquery.cxcalendar.min.js"></script>
+<script>
+  $.cxCalendar.defaults.type = 'datetime';
+  $.cxCalendar.defaults.position = 'bottomLeft';
+  $('#searchDate').cxCalendar();
+  $('#startTime').cxCalendar();
+</script>
+<script src="js/ordinary_user.js"></script>
+</body>
+</html>
+

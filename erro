@@ -1,0 +1,15 @@
+   throw new Error('Can\'t set headers after they are sent.');
+    ^
+
+Error: Can't set headers after they are sent.
+    at ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:335:11)
+    at ServerResponse.header (/home/fanhualuomu/WebstormProjects/LoraWeb/node_modules/express/lib/response.js:725:10)
+    at ServerResponse.send (/home/fanhualuomu/WebstormProjects/LoraWeb/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/home/fanhualuomu/WebstormProjects/LoraWeb/node_modules/express/lib/response.js:256:15)
+    at ServerResponse.send (/home/fanhualuomu/WebstormProjects/LoraWeb/node_modules/express/lib/response.js:158:21)
+    at null._onTimeout (/home/fanhualuomu/WebstormProjects/LoraWeb/server/routes/gateway.js:192:43)
+    at Timer.listOnTimeout (timers.js:92:15)
+
+
+
+
